@@ -1,37 +1,30 @@
-﻿/// Homework 2 Project 1
-/// File Name: homework2.sln
+﻿/// Homework 2 Project 2
+/// File Name: Program.cs
 /// Author: Lucas Smith
-/// Date:  September 13, 2021
-/// Problem Statement: Output your name in Pig Latin.
+/// Date: September 13, 2021
+/// Problem Statement: Write a program that converts degrees Fahrenheit to Celsius using the following formula. 
+/// Prompt the user to enter a temperature in degrees Fahrenheit (just a whole number of degrees without a fractional part), and then let the program print out the equivalent Celsius temperature, including the fractional part to one decimal point. 
+/// Use the Math.Round(number, decimal) method.
 /// 
-/// 
+///
 /// Overall Plan:
-/// 1) Setup the individual variables to store the normal first and last names, and then pig first and last names.
-/// 2) Setup an algorithm to change the name 
-/// 3) Print the Pig Latin version to the screen.
-
-
+///  1) Print a welcome message to the console.
+///  2) Ask for the temperature in degrees Fahrenheit
+///  3) Run the conversion to degreesC and print out the results to the screen, rounded to one decimal place.
 using System;
 
-namespace Homework2
+namespace Homework_2_Part_2
 {
     class Program
     {
         static void Main(string[] args)
         {
-            String first = "Lucas";
-            String last = "Smith";
-            String pigFirstName;
-            String pigLastName;
-
-            first = first.ToLower();
-            last = last.ToLower();
-            pigFirstName = first.Substring(1, 4) + first.Substring(0,1) + "ay";
-            pigFirstName = pigFirstName.Substring(0, 1).ToUpper() + pigFirstName.Substring(1,6);
-            pigLastName = last.Substring(1, 4) + last.Substring(0, 1) + "ay";
-            pigLastName = pigLastName.Substring(0, 1).ToUpper() + pigLastName.Substring(1,6);
-            Console.WriteLine(pigFirstName + " " + pigLastName);
-        
+            Console.WriteLine("Welcome to the Fahrenheit to Celsius converter!");
+            Console.WriteLine("Start by inputting the temperature in Fahrenheit.");
+            double degreesF = Double.Parse(Console.ReadLine());
+            double degreesC = (5 * (degreesF - 32)) / 9;
+            degreesC = Math.Round(degreesC, 1);
+            Console.WriteLine("The temperature in degrees Celsius is" + degreesC + " C.");
         }
     }
 }
